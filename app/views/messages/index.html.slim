@@ -1,0 +1,15 @@
+- signed = "Signed in as @ #{@current_user}"
+= signed
+br
+br
+
+#messages
+br
+br
+
+= form_for :message, url: messages_path, remote: true, id: 'messages-form' do |f|
+  = f.label :body, 'Enter a message:'
+  br
+  = f.text_field :body, class: 'mess-input'
+  br
+  = f.submit 'Send message', class: 'send-mess'

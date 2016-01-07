@@ -9,7 +9,8 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   </head>
 
-  <body>
+  <body ng-app='app'>
+    {{ 1 + 1 }}
     <%= yield %>
   </body>
 </html>
