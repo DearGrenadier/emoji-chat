@@ -2,7 +2,10 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require angular
+//= require angular-ui-router
 //= require angular-animate
 //= require angular-aria
 //= require angular-material
+//= require lodash
+//= require restangular
 //= require_tree .

@@ -2,11 +2,15 @@ class SessionsController < ApplicationController
   include AuthorizeSessions
 
   def new
-    set_current_user if current_user
+    render 'layouts/application'
   end
 
   def create
     set_current_user(params[:session][:username])
-    redirect_to messages_path
+    head :ok
+  end
+
+  def show
+    render json: {username: current_user}
   end
 end

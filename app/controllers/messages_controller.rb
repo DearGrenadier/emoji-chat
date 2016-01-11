@@ -4,8 +4,9 @@ class MessagesController < ApplicationController
   before_action :authorize, only: [:index, :create]
 
   def index
-    @current_user = current_user
-    ActionCable.server.broadcast 'message_channel', message: "@#{current_user} has joined to the room"
+    ActionCable.server.broadcast 'message_channel', message: {content: "@#{current_user} has joined to the room"}
+    @messages = Message.last(10)
+    render json: @messages, only: [:content, :author]
   end
 
   def create

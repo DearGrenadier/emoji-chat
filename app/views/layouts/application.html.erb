@@ -4,13 +4,11 @@
     <title>EmojiChat</title>
     <%= csrf_meta_tags %>
     <%= action_cable_meta_tag %>
-
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   </head>
 
   <body ng-app='app'>
-    {{ 1 + 1 }}
-    <%= yield %>
+    <ui-view></ui-view>
   </body>
 </html>

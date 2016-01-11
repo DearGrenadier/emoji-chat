@@ -7,6 +7,7 @@ module AuthorizeSessions
 
   def set_current_user(user = nil)
     cookies.signed[:username] = user
+    cookies[:foo] = 'bar'
   end
 
   def authorize
