@@ -1,0 +1,20 @@
+default: &default
+  adapter: 
+  pool: 5
+  timeout: 5000
+  username: 
+  password: 
+  encoding: utf8mb4
+  collation: utf8mb4_unicode_ci
+
+development:
+  <<: *default
+  database: emoji_chat_dev
+
+test:
+  <<: *default
+  database: emoji_chat_test
+
+production:
+  <<: *default
+  database: emoji_chat_prod
