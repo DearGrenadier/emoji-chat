@@ -1,5 +1,6 @@
-window.app.controller('ChatsCtrl', ['$scope', 'Sessions', 'Messages', ($scope, Sessions, Messages) ->
+window.app.controller('ChatsCtrl', ['$scope', 'Sessions', 'Messages', 'Emoji', ($scope, Sessions, Messages, Emoji) ->
   $scope.user = Sessions.getSession()
+  Messages.initChannel($scope)
   $scope.messages = []
   $scope.message = {}
 
@@ -10,9 +11,12 @@ window.app.controller('ChatsCtrl', ['$scope', 'Sessions', 'Messages', ($scope, S
 
   $scope.initMessages = ->
     Messages.getList().then (data) ->
-      debugger
       $scope.messages = data
 
+  $scope.initEmoji = ->
+    Emoji.getList().then (data) ->
+      $scope.emojies = data
+
   $scope.initMessages()
-  Messages.initChannel($scope)
+  $scope.initEmoji()
 ])

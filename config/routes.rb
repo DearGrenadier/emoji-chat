@@ -1,8 +1,9 @@
 Rails.application.routes.draw do
-  root to: 'sessions#new'
+  root to: 'application#app'
 
   resources :messages, only: [:index, :create]
   resources :sessions, only: [:new, :create]
+  resources :emoji, only: [:index]
   get 'sessions/show'
 
   # Serve websocket cable requests in-process

@@ -4,6 +4,6 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   def app
-    render layout: 'layouts/application'
+    render 'layouts/application'
   end
 end

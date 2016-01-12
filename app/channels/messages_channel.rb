@@ -10,7 +10,7 @@ class MessagesChannel < ApplicationCable::Channel
 
   def send_message(data)
     data['message']['content'] = EmojiSwapper.encode(data['message']['content'])
-    Message.create!(data['message'])
+    @message = Message.create!(data['message'])
     ActionCable.server.broadcast 'message_channel', message: {content: @message.content, author: @message.author}
   end
 end

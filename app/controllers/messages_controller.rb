@@ -8,8 +8,4 @@ class MessagesController < ApplicationController
     @messages = Message.last(10)
     render json: @messages, only: [:content, :author]
   end
-
-  def create
-    head :ok
-  end
 end
